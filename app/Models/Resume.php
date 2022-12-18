@@ -9,6 +9,7 @@ class Resume extends Model
 {
     use HasFactory;
     protected $fillable=['photo','name','surname','email','profession','data','language','adress','hobbi'];
+
     public function user(){
         return $this->belongsTo(User::class);
     }

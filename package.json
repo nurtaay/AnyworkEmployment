@@ -12,5 +12,9 @@
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "sass": "^1.32.11",
-        "vite": "^3.1.8"    }
+        "vite": "^3.1.8"
+    },
+    "dependencies": {
+        "bootstrap-icons": "^1.10.2"
+    }
 }

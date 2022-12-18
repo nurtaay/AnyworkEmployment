@@ -13,8 +13,6 @@
                     <input class="card-title" type="text" name="title" value="{{$post->title}}"><br>
                     <input class="card-title" type="text" name="image" value="{{$post->image}}"><br>
 
-
-
                     <select name="category_id">
                         @foreach($categories as $cat)
                             <option @if($cat-> id==$post->category_id)selected @endif value="{{$cat->id}}">{{$cat->name}}</option>

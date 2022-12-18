@@ -61,13 +61,13 @@
             <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
                aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-cog"></i>
-                <span>User mangement</span>
+                <span>User management</span>
             </a>
             <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item active" href="{{route('adm.users.search')}}">USERS LIST</a>
-                    <a class="collapse-item" href="cards.html">Roles</a>
+                    <a class="collapse-item active" href="{{route('adm.users.search')}}">{{__('messages.USERS_LIST')}}</a>
+                    <a class="collapse-item" href="{{route('adm.roles.index')}}">{{__('messages.Roles')}}</a>
                 </div>
             </div>
         </li>
@@ -77,14 +77,16 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
-                <span>Content management</span>
+                <span>{{__('messages.Content_management')}}</span>
             </a>
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Custom Utilities:</h6>
-                    <a class="collapse-item" href="utilities-color.html">Categories</a>
-                    <a class="collapse-item" href="utilities-border.html">Comments</a>
+                    <a class="collapse-item" href="{{route('adm.tournoments.index')}}">Tournoment</a>
+                    <a class="collapse-item" href="{{route('posts.product')}}">Jobs</a>
+                    <a class="collapse-item" href="{{route('adm.vacancy.index')}}">Vacancy Category</a>
+                    <a class="collapse-item" href="{{route('adm.admcomment.index')}}">Comments</a>
                 </div>
             </div>
         </li>

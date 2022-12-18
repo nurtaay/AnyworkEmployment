@@ -2,26 +2,26 @@
 @section('title','users page')
 @section('content')
 
-<form action="{{route('adm.users.search')}}" method="GET">
-    @csrf
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">@</span>
-        </div>
-        <input type="text" name="search" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
-        <button class="btn btn-success" type="submit">Search</button></div>
+    <form action="{{route('adm.users.search')}}" method="GET">
+        @csrf
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">@</span>
+            </div>
+            <input type="text" name="search" class="form-control" placeholder="{{__('messages.Search')}}" aria-label="Username" aria-describedby="basic-addon1">
+            <button class="btn btn-success" type="submit">{{__('messages.Search')}}</button></div>
 
-</form>
+    </form>
 
     <table class="table">
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Role</th>
-            <th scope="col">#</th>
-            <th scope="col">##</th>
+            <th scope="col">{{__('messages.Name')}}</th>
+            <th scope="col">{{__('messages.Email')}}</th>
+            <th scope="col">{{__('messages.Role')}}</th>
+            <th scope="col">{{__('messages.ban/unban')}}</th>
+            <th scope="col">{{__('messages.edit_role')}}</th>
         </tr>
         </thead>
         <tbody>
@@ -43,15 +43,28 @@
                         @method('PUT')
                         <button class="btn {{$users[$i]->is_active ? 'btn-danger':'btn-success'}}" type="submit">
                             @if($users[$i]->is_active)
-                                Ban
+                            {{__('messages.Ban')}}
                             @else
-                                 Unban
+                            {{__('messages.Unban')}}
                             @endif
 
                         </button>
                     </form>
                 </td>
-                <td></td>
+                <td><form action="{{route('adm.users.update',$users[$i]->id)}}" method="post">
+                        @csrf
+                        @method('PUT')
+                        <div>
+                            <select name="role_id">
+                                @foreach($roles as $role)
+                                    <option
+                                        @if( $role->id == $users[$i]->role_id ) selected
+                                        @endif value="{{$role->id}}">{{$role->name}}</option>
+                                @endforeach
+                            </select>
+                            <button type="submit">OK</button>
+                        </div>
+                    </form></td>
             </tr>
         @endfor
 

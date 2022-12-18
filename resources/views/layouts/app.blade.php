@@ -10,8 +10,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{asset('assets/img/favicon.png')}}" rel="icon">
-    <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+    <link href="{{asset('img/anywork2.svg')}}">
+    <link href="{{asset('img/anywork2.svg')}}">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -38,85 +38,127 @@
 
 <body>
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top " style="background: #37517e;">
+<header id="header" class="fixed-top " style="background: #37517e;margin-left: -50px">
     <div class="container d-flex align-items-center">
-
+        <img src="{{asset('img/anywork2.svg')}}" alt="" style="width: 130px; height: 130px; margin-top: 20px">
         <h1 class="logo me-auto"><a href="{{asset('index.html')}}">Anywork</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto active" href="{{route('posts.index')}}">Home</a></li>
-                <li><a class="nav-link scrollto" href="#about">About</a></li>
-                <li><a class="nav-link scrollto" href="{{route('resumes.index')}}">Resumes</a></li>
-{{--                <li><a class="nav-link   scrollto" href="#portfolio">Portfolio</a></li>--}}
-                <li><a class="nav-link scrollto" href="#team">Team</a></li>
-                <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="#">Drop Down 1</a></li>
-                        <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                            <ul>
-                                <li><a href="#">Deep Drop Down 1</a></li>
-                                <li><a href="#">Deep Drop Down 2</a></li>
-                                <li><a href="#">Deep Drop Down 3</a></li>
-                                <li><a href="#">Deep Drop Down 4</a></li>
-                                <li><a href="#">Deep Drop Down 5</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Drop Down 2</a></li>
-                        <li><a href="#">Drop Down 3</a></li>
-                        <li><a href="#">Drop Down 4</a></li>
+                <li><a class="nav-link scrollto active" href="{{route('posts.index')}}">{{__('messages.Home')}}</a></li>
+                <li><a class="nav-link scrollto" href="#team">{{__('messages.Team')}}</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{__('messages.Vacancy')}}</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @isset($categories)
+                            @foreach($categories as $cat)
+                                <li>
+                                    <a class="dropdown-item"
+                                       href="{{ route('posts.vacancy', $cat->id) }}">{{$cat->name}}</a>
+                                </li>
+                            @endforeach
+                        @endisset
                     </ul>
                 </li>
-                <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
 
-                <ul class="navbar-nav ms-auto">
-                @guest()
-                    @if(Route::has('login.form'))
-                        <li class="nav-item"><a class="nav-link" href="{{route('login.form')}}">Login</a></li>
+                <li class="nav-item">
+                    @if(app()->getLocale()=='en')
+                        <a class="nav-link" href="{{route('posts.allfavourite')}}">{{__('messages.My_favourite_vacancy')}}</a>
+                    @elseif(app()->getLocale()=='kz')
+
+                        <a class="nav-link" href="{{route('posts.allfavourite')}}">Таңдаулы ваканциялар</a>
+                    @elseif(app()->getLocale()=='ru')
+                        <a class="nav-link" href="{{route('posts.allfavourite')}}">Мой избранное ваканций</a>
                     @endif
+                </li>
+                <li><a class="nav-link scrollto" href="#contact">{{__('messages.Contact')}}</a></li>
 
-                    @if(Route::has('register.form'))
-                        <li class="nav-item"><a class="nav-link" href="{{route('register')}}">Register</a></li>
-                    @endif
-                @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggue="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{\Illuminate\Support\Facades\Auth::user()->name}}
-                        </a>
+                <ul class="nav-link">
+                    @guest
+                        @if (Route::has('login.form'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login.form') }}">{{ __('Login') }}</a>
+                            </li>
+                        @endif
 
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{route('logout')}}"
-                            onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                            Logout
-                        </a>
+                        @if (Route::has('register.form'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register.form') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="dropdown">
+                        <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    🌐 {{config('app.languages')[app()->getLocale()]}}
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    @foreach(config('app.languages') as $ln => $lang)
+                                        <a class="dropdown-item" style="color:rgba(0, 106, 93, 0.8); " href="{{route('switch.lang',$ln)}}">
+                                            {{$lang}}
+                                        </a>
+                                    @endforeach
+                                </div>
+                            </li>
+                            <li class="dropdown">
+                                <a id="navbarDropdown" href="{{route('user.profile')}}" class="nav-link dropdown-toggle" role="button"
+                                   data-bs-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{__('messages.Profile')}}
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="width: 250px;">
+                                {{ Auth::user()->name }}
+                                <a  style="color: black" class="nav-link" href="{{route('wallet.index')}}">Cash</a>
+                                <a  style="color: black" class="nav-link" href="{{route('user.profile')}}">{{__('messages.Profile')}}</a>
+                                <a  style="color: black" class="nav-link" href="{{route('posts.create')}}">{{__('messages.Job')}}</a>
+                                <a  style="color: black" class="nav-link" href="{{route('resumes.index')}}">{{__('messages.Resumes')}}</a>
+                                <a  style="color: black; width: 150px; border-radius: 10px" class="" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                    {{ __('messages.logout') }}
+                                </a>
 
-                        <form id="logout-form" action="{{route('logout')}}" method="post" class="d-none">
-                            @csrf
-                        </form>
-                    </div>
-                    </li>
+                                    <a class="dropdown-item" style="color:rgb(236,0,6);" href="{{route('adm.users.index')}}" role="button" >
+                                        {{ __('messages.adm-panel') }}
+                                    </a>
+                               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
                     @endguest
                 </ul>
 
-                <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+                <li><a class="getstarted scrollto" href="#about">{{__('messages.Get Started')}}</a></li>
+                @auth<li style="margin-left: 10px;"><img src="@if(Auth::user() != null) {{asset(Auth::user()->avatar)}} @endif " style="width: 70px; height: 70px; border-radius: 50px" class="nav-profile-img"></li>@endauth
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
 
     </div>
 </header>
-<!-- End Header -->
-<div class="">
+<div>
+    @if (Session::has('message'))
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert">
+                <i class="fa fa-times"></i>
+            </button>
+            {{ session('message') }}<strong>!</strong>
+        </div>
+    @endif
+
+    @if (Session::has('error'))
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert">
+                <i class="fa fa-times"></i>
+            </button>
+            {{ session('error') }}<strong>!</strong>
+        </div>
+    @endif
 @yield('content')
 </div>
 
-<div id="preloader"></div>
+<div id=""></div>
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-<!-- Vendor JS Files -->
 <script src="{{asset('assets/vendor/aos/aos.js')}}"></script>
 <script src="{{'assets/vendor/bootstrap/js/bootstrap.bundle.min.js'}}"></script>
 <script src="{{'assets/vendor/glightbox/js/glightbox.min.js'}}"></script>
@@ -124,10 +166,6 @@
 <script src="{{asset('assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
 <script src="{{'assets/vendor/waypoints/noframework.waypoints.js'}}"></script>
 <script src="{{'assets/vendor/php-email-form/validate.js'}}"></script>
-
-<!-- Template Main JS File -->
 <script src="{{asset('assets/js/main.js')}}"></script>
-
 </body>
-
 </html>

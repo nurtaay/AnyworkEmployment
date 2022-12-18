@@ -13,13 +13,13 @@
     @endif
 
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" style="margin-top: 200px">
         <div class="col-md-10">
-            <form action="{{route('resumes.store')}}" method="post">
+            <form action="{{route('resumes.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label for="photoInput" >Photo</label>
-                    <input type="text" class="form-control  @error('photo') is-invalid @enderror" name="photo" id="photoInput" placeholder="Enter photo url " >
+                    <label for="photoInput" >{{__('messages.Photo')}}</label>
+                    <input type="file" class="form-control  @error('photo') is-invalid @enderror" name="photo" id="photoInput" placeholder="{{__('messages.Enter photo url')}}" >
 
                 </div>
                 <div class="form-group">
@@ -53,8 +53,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="dataInput" >Date,month,year of birth:</label>
-                    <input type="text" class="form-control  @error('data') is-invalid @enderror" name="data" id="dataInput" placeholder="Enter your date: " >
+                    <label for="dataInput" >{{__('messages.Date_month_year_of_birth:')}}</label>
+                    <input type="date" class="form-control  @error('data') is-invalid @enderror" name="data" id="dataInput" placeholder="{{__('messages.Enter your date:')}}" >
                     @error('data')
                     <div class="alert alert-danger">{{$message}}</div>
                     @enderror

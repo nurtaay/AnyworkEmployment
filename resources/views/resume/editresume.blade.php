@@ -3,14 +3,14 @@
 @section('content')
 
 
-    <div>
+    <div style="margin-top: 300px">
         <div class="card">
             <div class="card-body">
-                <form action ="{{route('resumes.update',$resume->id)}}" method="post">
+                <form action ="{{route('resumes.update',$resume->id)}}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
-                    <input class="card-title" type="text" name="photo" value="{{$resume->photo}}"><br>
+                    <input class="card-title" type="file" name="photo" value="{{$resume->photo}}"><br>
                     <input class="card-title" type="text" name="name" value="{{$resume->name}}"><br>
                     <input class="card-title" type="text" name="surname" value="{{$resume->surname}}"><br>
                     <input class="card-title" type="text" name="email" value="{{$resume->email}}"><br>
@@ -24,15 +24,5 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
 @endsection
 

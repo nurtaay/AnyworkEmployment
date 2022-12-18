@@ -18,4 +18,13 @@ class Post extends Model
     public function comments(){
         return $this->hasMany(Comment::class);
     }
+    public function Rposts2(){
+        return $this->belongsToMany(User::class)->withPivot('message')->withTimestamps();
+    }
+
+    public function BoughtUsers(){
+        return $this->belongsToMany(User::class , 'cart')
+            ->withPivot('week', 'status')
+            ->withTimestamps();
+    }
 }

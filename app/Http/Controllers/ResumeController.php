@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Resume;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,8 +17,8 @@ class ResumeController extends Controller
     public function index()
     {
         $allResumes= Resume::all();
-
-       return view('resume.indexresume',['resumes'=>$allResumes]);
+        $user = User::all();
+       return view('resume.indexresume',['resumes'=>$allResumes, 'users' => $user]);
     }
 
 
@@ -30,7 +31,6 @@ class ResumeController extends Controller
     public function store(Request $request)
     {
         $validated=$request->validate([
-            'photo'=>'required',
             'name'=>'required',
             'surname'=>'required',
             'email'=>'required',
@@ -40,6 +40,10 @@ class ResumeController extends Controller
             'adress'=>'required',
             'hobbi'=>'required'
         ]);
+
+        $fillname = time().$request->file('photo')->getClientOriginalName();
+        $image_path = $request->file('photo')->storeAs('resume', $fillname, 'public');
+        $validated ['photo'] = '/storage/'.$image_path;
 
         Auth::user()->resumes()->create($validated);
         return redirect()->route('resumes.index')->with('message',' РЕЗЮМЕ УСПЕШНО СОХРАНЕН !!!');
@@ -59,7 +63,6 @@ class ResumeController extends Controller
     public function update(Request $request, Resume $resume)
     {
         $resume->update([
-            'photo'=>$request->input('photo'),
             'name'=>$request->input('name'),
             'surname'=>$request->input('surname'),
             'email'=>$request->input('email'),
@@ -69,6 +72,13 @@ class ResumeController extends Controller
             'adress'=>$request->input('adress'),
             'hobbi'=>$request->input('hobbi'),
         ]);
+
+        $fillname = time().$request->file('photo')->getClientOriginalName();
+        $image_path = $request->file('photo')->storeAs('resume', $fillname, 'public');
+        $validated ['photo'] = '/storage/'.$image_path;
+
+        Auth::user()->resumes()->update($validated);
+
         return redirect()->route('resumes.index')->with('message','Резюме изменён!!!');
 
     }

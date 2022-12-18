@@ -22,6 +22,8 @@ class LoginController extends Controller
        if(Auth::attempt($validated)){
            if(Auth::user()->role->name == "admin")
                return redirect()->intended('/adm/users');
+           if(Auth::user()->role->name == "moderator")
+               return redirect()->intended('/adm/vacancy');
            return redirect()->intended('/posts');
        }
        return back()->withErrors('Incorrect email or password');

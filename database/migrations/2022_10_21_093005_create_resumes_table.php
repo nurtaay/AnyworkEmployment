@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('surname');
             $table->text('email');
             $table->string('profession');
-            $table->integer('data');
+            $table->date('data');
             $table->text('language');
             $table->text('adress');
             $table->text('hobbi');
