@@ -7,10 +7,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-                    <h1>AnyWork Employment </h1>
-                    <h2>Жұмыс табу үшін ең қолайлы платформа!Тіркел де арманыңдағы жұмысысыңды жаса!</h2>
+                    <h1>AnyWork Employment</h1>
+                    <h2>{{__('messages.Жұмыс табу үшін ең қолайлы платформа!Тіркел де арманыңдағы жұмысысыңды жаса!')}}</h2>
                     <div class="d-flex justify-content-center justify-content-lg-start">
-                        <a href="#about" class="btn-get-started scrollto">Бастау</a>
+                        <a href="#about" class="btn-get-started scrollto">{{__('messages.Бастау')}}</a>
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
@@ -62,7 +62,7 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-title">
-                    <h2>Ваканция!</h2>
+                    <h2>{{__('messages.Ваканция!')}}</h2>
                 </div>
 
                 <div class="container">
@@ -73,9 +73,10 @@
                                 <div class="col-sm-4">
                                     <div class="card" >
                                         <div class="card-body">
+                                            <img src="{{asset($post->image)}}" alt="" style="width: 50px; height: 50px">
                                             <div class="card-header" ><h5 class="card-title">{{$post->title}} </h5></div>
                                             <p class="card-text">{{$post->content}}</p>
-                                            <a class="btn-outline-primary" href="{{route('posts.show',$post->id)}}">Read more</a>
+                                            <a class="btn-outline-primary" href="{{route('posts.show',$post->id)}}">{{__('messages.Read_more')}}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -90,40 +91,42 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-title">
-                    <h2>Категория</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                    <h1>Что должен знать студент</h1>
                 </div>
 
                 <div class="row">
-                    <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100"  style="margin-left:60px">
                         <div class="icon-box">
                             <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                            <h4><a href="">Стажировка</a></h4>
-                            <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                            <h4><a href="">{{__('messages.Стажировка')}}</a></h4>
+                            <p>Стажировка – это не только опыт работы, но и знакомство с новыми специалистами и умение налаживать с ними контакт. Общайтесь, обменивайтесь знаниями, задавайте вопросы профессионалам – все это вам пригодиться в будущей работе и повседневной жизни.</p>
                         </div>
                     </div>
 
-                    <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                    <div  style="margin-left:60px" class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
                         <div class="icon-box">
                             <div class="icon"><i class="bx bx-file"></i></div>
-                            <h4><a href="">Фриланс</a></h4>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                            <h4><a href="">{{__('messages.Фриланс')}}</a></h4>
+                            <p>
+                                Фриланс — это способ заработка, который позволяет сотрудничать с разными работодателями (даже одновременно!) без постоянного трудоустройства в какой-либо организации.</p>
                         </div>
                     </div>
 
-                    <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="icon-box">
-                            <div class="icon"><i class="bx bx-tachometer"></i></div>
-                            <h4><a href=""></a></h4>
-                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-                        </div>
-                    </div>
 
-                    <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+
+                    <div  style="margin-left:60px" class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
                         <div class="icon-box">
                             <div class="icon"><i class="bx bx-layer"></i></div>
-                            <h4><a href="">Nemo Enim</a></h4>
-                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+                            <h4><a href="">Как выбрать работадателя</a></h4>
+                            <li>🗂Запросите выписку из реестра налоговой</li>
+                            <li>🧑‍⚖️ Узнайте об отношениях с госорганами</li>
+                            <li>💸 Убедитесь, что не начато банкротство</li>
+                            <li>🥊 Проверьте, были ли споры с контрагентами</li>
+                            <li>💾 Защитите свои персональные данные</li>
+                            <li>👷 Узнайте, как соблюдаются условия труда</li>
+                            <li>📝 Почитайте отзывы работников</li>
+                            <li>🗣 Уточните подробности на собеседовании</li>
+                            <li>✉️ Не соглашайтесь на серую зарплату</li>
                         </div>
                     </div>
 
@@ -136,7 +139,7 @@
 
                 <div class="section-title">
                     <h2>Team</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+
                 </div>
 
                 <div class="row">
@@ -145,9 +148,9 @@
                         <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
                             <div class="pic"><img src="assets/img/team/meirbek1.jpeg" class="img-fluid" alt=""></div>
                             <div class="member-info">
-                                <h4>Onaybai Meyirbek</h4>
+                                <h4>Оңайбай Мейірбек</h4>
                                 <span>CEO and TEAM LEADER</span>
-                                <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
+                                <p>Нархоз университетінде DE мамандығы бойынша 2 курс студенті</p>
                                 <div class="social">
                                     <a href=""><i class="ri-twitter-fill"></i></a>
                                     <a href=""><i class="ri-facebook-fill"></i></a>
@@ -162,9 +165,9 @@
                         <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="300" style="height: 235px">
                             <div class="pic"><img src="assets/img/team/bekzat.png" class="img-fluid" alt=""></div>
                             <div class="member-info">
-                                <h4>Bekzat Kalau</h4>
+                                <h4>Қалау Бекзат</h4>
                                 <span>CEO and FullStack developer</span>
-                                <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
+                                <p>Нархоз университетінде DE мамандығы бойынша 2 курс студенті</p>
                                 <div class="social">
                                     <a href=""><i class="ri-twitter-fill"></i></a>
                                     <a href=""><i class="ri-facebook-fill"></i></a>
@@ -179,9 +182,9 @@
                         <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="300">
                             <div class="pic"><img src="assets/img/team/berik.jpeg" class="img-fluid" alt=""></div>
                             <div class="member-info">
-                                <h4>Berik Tulegenov</h4>
+                                <h4>Берік Төлегенов</h4>
                                 <span>FRONTEND developer</span>
-                                <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
+                                <p>Нархоз университетінде DE мамандығы бойынша 2 курс студенті</p>
                                 <div class="social">
                                     <a href=""><i class="ri-twitter-fill"></i></a>
                                     <a href=""><i class="ri-facebook-fill"></i></a>
@@ -196,9 +199,9 @@
                         <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="400">
                             <div class="pic"><img src="assets/img/team/nurtay.jpeg" class="img-fluid" alt=""></div>
                             <div class="member-info">
-                                <h4>Serik Nurtay</h4>
+                                <h4>Серік Нұртай</h4>
                                 <span>Backend developer</span>
-                                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
+                                <p>Нархоз университетінде DE мамандығы бойынша 2 курс студенті</p>
                                 <div class="social">
                                     <a href=""><i class="ri-twitter-fill"></i></a>
                                     <a href=""><i class="ri-facebook-fill"></i></a>
@@ -213,9 +216,9 @@
                         <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="400">
                             <div class="pic"><img src="assets/img/team/gulia.jpeg" class="img-fluid" alt=""></div>
                             <div class="member-info">
-                                <h4>Gulbarshyn Valikhanova</h4>
-                                <span>Design Developer</span>
-                                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
+                                <h4>Гүлбаршын Валиханова</h4>
+                                <span>Design </span>
+                                <p>Нархоз университетінде DE мамандығы бойынша 2 курс студенті</p>
                                 <div class="social">
                                     <a href=""><i class="ri-twitter-fill"></i></a>
                                     <a href=""><i class="ri-facebook-fill"></i></a>
@@ -230,9 +233,9 @@
                         <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="400">
                             <div class="pic"><img src="assets/img/team/fariza.jpeg" class="img-fluid" alt=""></div>
                             <div class="member-info">
-                                <h4>Bukharova Fariza</h4>
+                                <h4>Бухарова Фариза</h4>
                                 <span>SMM Manager</span>
-                                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
+                                <p>Нархоз университетінде DE мамандығы бойынша 2 курс студенті</p>
                                 <div class="social">
                                     <a href=""><i class="ri-twitter-fill"></i></a>
                                     <a href=""><i class="ri-facebook-fill"></i></a>
@@ -247,9 +250,9 @@
                         <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="300">
                             <div  class="pic"><img src="assets/img/team/mako1.png" class="img-fluid" alt=""></div>
                             <div class="member-info">
-                                <h4>Dairabay Magzhan </h4>
+                                <h4>Дайрабай Мағжан</h4>
                                 <span>PR manager</span>
-                                <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
+                                <p>Нархоз университетінде DE мамандығы бойынша 2 курс студенті</p>
                                 <div class="social">
                                     <a href=""><i class="ri-twitter-fill"></i></a>
                                     <a href=""><i class="ri-facebook-fill"></i></a>
@@ -259,71 +262,57 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-
-
                 </div>
-
             </div>
-        </section><!-- End Team Section -->
-
-        <!-- ======= Pricing Section ======= -->
+        </section>
             <section id="pricing" class="pricing">
                 <div class="container" data-aos="fade-up">
 
                     <div class="section-title">
-                        <h2>Pricing</h2>
-                        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                        <h2>{{__('messages.Зарплаты IT-специалистов растут ежегодно')}}</h2>
+                        <p>{{('messages.Итак, в связи с ростом востребованности, зарплаты IT- специалистов стали расти. По данным
+                            ANYWORK.kz, в 2022 году они выросли на 26%.')}}</p>
                     </div>
 
                     <div class="row">
 
                         <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                             <div class="box">
-                                <h3>Free Plan</h3>
-                                <h4><sup>$</sup>0<span>per month</span></h4>
+                                <h3>{{__('messages.Junior Developer')}}</h3>
+                                <h4><sup>$</sup>800-1000<span>{{__('messages.per month')}}</span></h4>
                                 <ul>
-                                    <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-                                    <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                                    <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-                                    <li class="na"><i class="bx bx-x"></i> <span>Pharetra massa massa ultricies</span></li>
-                                    <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
+                                    <li><i class="bx bx-check"></i> {{__('messages.Он может иметь небольшой практический опыт или не иметь его вообщеcтве')}}</li>
+                                    <li><i class="bx bx-check"></i> {{__('messages.С более сложными у него чаще всего возникают затруднения, однако толковый кодер может справиться и с ними при помощи других сотрудников компании.')}}</li>
+                                    <li><i class="bx bx-check"></i> {{__('messages.Он обладает определенными знаниями и навыками, способен решать простые задачи.')}}</li>
                                 </ul>
-                                <a href="#" class="buy-btn">Get Started</a>
+
                             </div>
                         </div>
 
                         <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
                             <div class="box featured">
-                                <h3>Business Plan</h3>
-                                <h4><sup>$</sup>29<span>per month</span></h4>
+                                <h3>{{__('messages.Middle developer')}}</h3>
+                                <h4><sup>$</sup>1700-2000<span>{{__('messages.per month')}}</span></h4>
                                 <ul>
-                                    <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-                                    <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                                    <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-                                    <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
-                                    <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
+                                    <li><i class="bx bx-check"></i> {{__('messages.Middle')}} {{__('messages.программист')}} –
+                                        {{__('messages.достаточно опытный кодер, способный самостоятельно справляться с задачами,которые джуниору не под силу.')}}</li>
+                                    <li><i class="bx bx-check"></i> {{__('messages.Чтобы решать более сложные вопросы, ему необходима помощь ментора')}}</li>
+
                                 </ul>
-                                <a href="#" class="buy-btn">Get Started</a>
+
                             </div>
                         </div>
 
                         <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
                             <div class="box">
-                                <h3>Developer Plan</h3>
-                                <h4><sup>$</sup>49<span>per month</span></h4>
+                                <h3>{{__('messages.Senior Developer')}}</h3>
+                                <h4><sup>$</sup>2500-3000<span>{{__('messages.per month')}}</span></h4>
                                 <ul>
-                                    <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-                                    <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                                    <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-                                    <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
-                                    <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
+                                    <li><i class="bx bx-check"></i> {{__('Senior')}} {{__('программист')}} {{__('messages.может справляться с задачами высокой сложности, а также руководить другими сотрудниками, участвующими в разработке')}}</li>
+                                    <li><i class="bx bx-check"></i> {{__('messages.Нахождение нестандартных путей решения эффективных инструментов достижения цели – также его компетенция.')}}</li>
+
                                 </ul>
-                                <a href="#" class="buy-btn">Get Started</a>
+
                             </div>
                         </div>
 
@@ -337,8 +326,9 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-title">
-                    <h2>Неге бізді таңдауыңыз керек!</h2>
-                    <p>Қазақстан Республикасы бойынша бірінші ашылған Отандық өнімбіз.Мұнда Қазақстандық барлық компаниялар тізімі енгізілген.Кез-келген уақытта бос вакансия қарай аласыз!</p>
+                    <h2>{{__('messages.Неге бізді таңдауыңыз керек!')}}</h2>
+                    <p>{{__('messages.Отандық өнімбіз.Мұнда Қазақстандық барлық компаниялар тізімі енгізілген.Кез-келген уақытта бос
+                        вакансия қарай аласыз!')}}</p>
                 </div>
 
                 <div class="faq-list">
@@ -347,45 +337,22 @@
                             <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Тиімділігі?<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                             <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
                                 <p>
-                                    Ең басты артықшылығы жұмысты сырттан іздемейсіз.Тек өзіңізге қажет бағытты таңдап қойсаңыз жеткілікті.Іздеген бағытыңызға қарай жұмыс шығатын болады.
+                                    {{__('messages.Ең басты артықшылығы жұмысты сырттан іздемейсіз.Тек өзіңізге қажет бағытты таңдап қойсаңыз жеткілікті.Іздеген бағытыңызға қарай жұмыс шығатын болады.')}}
                                 </p>
                             </div>
                         </li>
 
-                        <li data-aos="fade-up" data-aos-delay="200">
-                            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Артықшылығы?<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                            <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
-                                <p>
-                                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-                                </p>
-                            </div>
-                        </li>
+
                         <li data-aos="fade-up" data-aos-delay="300">
                             <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Ерекшелігі?<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                             <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
                                 <p>
-                                    Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+                       Бұл платформа студенттеге арналған.Яғни аудиториясы студенттер.Көптеген компаниялар білікті мамандар іздейді .Мұнда студенттер түрлі хакатондарға өздерінің жобасын ұсынып,курстарға қатысу арқылы тәжірибе жинайды.Және осы арқылы түйіндемелерін ұсынады
                                 </p>
                             </div>
                         </li>
 
-                        <li data-aos="fade-up" data-aos-delay="400">
-                            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                            <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
-                                <p>
-                                    Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in.
-                                </p>
-                            </div>
-                        </li>
 
-                        <li data-aos="fade-up" data-aos-delay="500">
-                            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                            <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
-                                <p>
-                                    Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque.
-                                </p>
-                            </div>
-                        </li>
 
                     </ul>
                 </div>
@@ -399,7 +366,7 @@
 
                 <div class="section-title">
                     <h2>Как нас найти</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+
                 </div>
 
                 <div class="row">
@@ -461,31 +428,12 @@
                 </div>
 
             </div>
-        </section><!-- End Contact Section -->
-
-    </main><!-- End #main -->
-
-    <!-- ======= Footer ======= -->
+        </section>
+    </main>
     <footer id="footer">
-
-        <div class="footer-newsletter">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <h4>Join Our Newsletter</h4>
-                        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-                        <form action="" method="post">
-                            <input type="email" name="email"><input type="submit" value="Subscribe">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="footer-top">
             <div class="container">
                 <div class="row">
-
                     <div class="col-lg-3 col-md-6 footer-contact">
                         <h3>AnyWork</h3>
                         <p>
@@ -496,29 +444,6 @@
                             <strong>Эл.почта:</strong> anywork@example.com<br>
                         </p>
                     </div>
-
-                    <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Басты бет</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Контент</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-                        </ul>
-                    </div>
-
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Әлеуметтік желілер:</h4>
                         <p>Біз осы желілерде бармыз:</p>
@@ -530,24 +455,17 @@
                             <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
-
         <div class="container footer-bottom clearfix">
             <div class="copyright">
                 <div >&copy; Copyright <strong><span>Anywork</span></strong>. All Rights Reserved</div>
             </div>
             <div class="credits">
-                <!-- All the l%inks in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
             </div>
         </div>
-    </footer><!-- End Footer -->
-
+    </footer>
 @endsection
 
 

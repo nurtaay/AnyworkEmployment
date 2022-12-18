@@ -13,4 +13,10 @@ class Resume extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function resumePost()
+    {
+        return $this->belongsToMany(Post::class,'resume_vacancies')
+            ->withTimestamps();
+    }
 }

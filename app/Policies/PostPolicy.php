@@ -8,14 +8,20 @@ use Illuminate\Auth\Access\HandlesAuthorization;
 
 class PostPolicy
 {
+
     use HandlesAuthorization;
-
-
+    public function resView(User $user, Post $post){
+        return($post->user_id == $user->id);
+    }
     public function viewAny(User $user)
     {
-        //
+        return $user->role->name != 'user' ;
     }
 
+    public function viewAny1(User $user)
+    {
+        return $user->role->name == 'admin' ;
+    }
     public function view(User $user, Post $post)
     {
         //

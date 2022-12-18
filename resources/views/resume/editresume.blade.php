@@ -19,7 +19,7 @@
                     <input class="card-title" type="text" name="language" value="{{$resume->language}}"><br>
                     <input class="card-title" type="text" name="adress" value="{{$resume->adress}}"><br>
                     <input class="card-title" type="text" name="hobbi" value="{{$resume->hobbi}}"><br>
-                    <button type="submit" class="btn btn-outline-success"> Update post</button>
+                    <button type="submit" class="btn btn-outline-success">{{__('messages.Update_Post')}}</button>
                 </form>
             </div>
         </div>

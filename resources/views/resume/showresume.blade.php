@@ -15,7 +15,7 @@
             <p class="card-text">{{$resume->language}}</p>
             <p class="card-text">{{$resume->adress}}</p>
             <p class="card-text">{{$resume->hobbi}}</p>
-            <a href="{{route('resumes.edit',$resume->id)}}" class="btn btn-primary">Edit</a>
+            <a href="{{route('resumes.edit',$resume->id)}}" class="btn btn-primary">{{__('messages.Edit')}}</a>
         </div
 
 

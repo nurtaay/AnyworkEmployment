@@ -9,7 +9,22 @@ class Post extends Model
 {
     use HasFactory;
     protected $fillable=['title','image','content','category_id','user_id'];
-    public function category (){
+    public function usersFavourite(){
+        return $this->belongsToMany(User::class,'favourite')
+            ->withTimestamps();
+
+    }
+
+    public function wallets(){
+        return $this->hasMany(Wallet::class);
+    }
+
+    public function postResume()
+    {
+        return $this->belongsToMany(Resume::class,'resume_vacancies')
+            ->withTimestamps();
+    }
+    public function category(){
         return $this->belongsTo(Category::class);
     }
     public function user(){

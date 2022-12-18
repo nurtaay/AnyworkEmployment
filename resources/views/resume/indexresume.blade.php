@@ -19,18 +19,18 @@
                                                 <div class="card-body">
                                                     <h5 class="card-title"></h5>
                                                     <hr>
-                                                    <p class="card-text">Name:{{$resume->name}} </p>
-                                                    <p class="card-text">Surname:{{$resume->surname}} </p>
-                                                    <p class="card-text">Email:{{$resume->email}} </p>
-                                                    <p class="card-text">Profession:{{$resume->profession}}</p>
-                                                    <p class="card-text">Data:{{$resume->data}} </p>
-                                                    <p class="card-text">Language:{{$resume->language}} </p>
-                                                    <p class="card-text">Adress:{{$resume->adress}} </p>
-                                                    <p class="card-text">Hobbi:{{$resume->hobbi}} </p>
+                                                    <p class="card-text">{{__('messages.Name:')}}{{$resume->name}} </p>
+                                                    <p class="card-text">{{__('messages.Surname')}}{{$resume->surname}} </p>
+                                                    <p class="card-text">{{__('messages.Email:')}}{{$resume->email}} </p>
+                                                    <p class="card-text">{{__('messages.Profession:')}}{{$resume->profession}}</p>
+                                                    <p class="card-text">{{__('messages.Data:')}}{{$resume->data}} </p>
+                                                    <p class="card-text">{{__('messages.Language:')}}{{$resume->language}} </p>
+                                                    <p class="card-text">{{__('messages.Adress:')}}{{$resume->adress}} </p>
+                                                    <p class="card-text">{{__('messages.Hobbi:')}}{{$resume->hobbi}} </p>
                                                     <form action="{{route('resumes.destroy',$resume->id)}}" method="post">
                                                         @csrf
                                                         @method('Delete')
-                                                        <button class="btn btn-danger" type="submit">delete</button>
+                                                        <button class="btn btn-outline-danger" style="border-radius: 30px" type="submit">{{__('messages.delete')}}</button>
                                                     </form>
                                                     <a type=submit" class="btn btn-outline-success" style="border-radius: 30px" href="{{route('resumes.show',$resume->id)}}" >{{__('messages.read_more')}}</a>
                                                     </div>

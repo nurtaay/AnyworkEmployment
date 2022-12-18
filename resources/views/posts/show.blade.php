@@ -2,7 +2,7 @@
 @section('title','create page')
 @section('content')
 
-    <div class="card" style="width: 500px; margin-left: 500px; margin-top: 200px">
+    <div class="card" style="width: 500px; margin-left: 500px; margin-top: 200px; height: 300px ">
         <div class="card-body">
             <h5 class="card-title">{{$post->title}}</h5>
             <h6 class="card-subtitle mb-2 text-muted"></h6>
@@ -31,12 +31,27 @@
             <a href="#" class="card-link">
                 <form action="{{route('comments.store')}}" method="post">
                     @csrf
-                    <textarea name="content" rows="3" placeholder="откликаться"></textarea>
+                    <textarea name="content" rows="3" placeholder="Comment"></textarea>
                     <input type="hidden" name="post_id" value="{{$post->id}}">
                     <button type="submit" class="btn btn-outline-success">Save</button>
                 </form>
             </a>
         </div>
     </div>
+    <ul class="list-group mt-3">
+        @foreach($post->comments as $comment)
+            <li class="list-group-item d-flex justify-content-between align-items-start" style="width: 700px; margin-top: 5px">
+                <small>Auhtor: <span style="color: #1a202c; font-size: 16px;">{{$comment->user->name}}</span></small>
+                <small style="margin-right: 300px"><span style="color: #1a202c; font-size: 16px;">Comment: {{$comment->content}}</span></small>
+            </li>
+            @can('delete', $comment)
+                <form action="{{route('comments.destroy', $comment->id)}}" method="post" style="margin-top: -50px; margin-left: 728px">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit"  onclick="return confirm('Are you sure?')" class="btn btn-outline-dark">X</button>
+                </form>
+            @endcan
+        @endforeach
+    </ul>
 @endsection
 

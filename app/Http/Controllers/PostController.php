@@ -23,7 +23,7 @@ class PostController extends Controller
 
     public function cart(){
         $cart = Cart::where('status', 'ordered')->with(['post', 'user'])->get();
-        return view('cart', ['cart' => $cart]);
+        return view('cart.cart', ['cart' => $cart]);
     }
 
     public function buy(){
@@ -132,13 +132,9 @@ class PostController extends Controller
             'category_id'=>'required|numeric |exists:categories,id'
         ]);
 
-//        $fillname = time().$request->file('image')->getClientOriginalName();
-//        $image_path = $request->file('image')->storeAs('posts', $fillname, 'public');
-//        $validated ['image'] = '/storage/'.$image_path;
-//        Auth::user()->posts()->create($validated);
-
-
-
+        $fillname = time().$request->file('image')->getClientOriginalName();
+        $image_path = $request->file('image')->storeAs('posts', $fillname, 'public');
+        $validated ['image'] = '/storage/'.$image_path;
         Auth::user()->posts()->create($validated);
         return redirect()->route('posts.index')->with('message','ПОСТ УСПЕШНО СОХРАНЕН !!');
     }
@@ -160,6 +156,11 @@ class PostController extends Controller
             'content'=>$request->input('content'),
             'category_id'=>$request->category_id,
         ]);
+
+        $fillname = time().$request->file('image')->getClientOriginalName();
+        $image_path = $request->file('image')->storeAs('posts', $fillname, 'public');
+        $validated ['image'] = '/storage/'.$image_path;
+        Auth::user()->posts()->update($validated);
         return redirect()->route('posts.product')->with('message','ПОСТ ИЗМЕНЕН');
 
     }

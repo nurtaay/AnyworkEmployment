@@ -47,7 +47,9 @@
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
-
+        <li>
+            <button class="nav-link"><a href="{{route('posts.index')}}">{{__('messages.Home')}}</a></button>
+        </li>
         <!-- Divider -->
         <hr class="sidebar-divider">
 
@@ -55,7 +57,20 @@
         <div class="sidebar-heading">
             Interface
         </div>
+        <li class="nav-item">
+            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
 
+                {{config('app.languages')[app()->getLocale()]}}
+                <i class="fa fa-angle-down adminpro-icon adminpro-down-arrow"></i>
+            </a>
+            <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                @foreach(config('app.languages') as $ln => $lang)
+                    <a class="dropdown-item" style="color:rgba(0,9,106,0.8); " href="{{route('switch.lang',$ln)}}">
+                        {{$lang}}
+                    </a>
+                @endforeach
+            </ul>
+        </li>
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item active">
             <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"

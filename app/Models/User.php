@@ -61,4 +61,29 @@ class User extends Authenticatable
     public function role(){
         return $this->belongsTo(Role::class);
     }
+    public function favouritePosts(){
+        return $this->belongsToMany(Post::class,'favourite')
+            ->withTimestamps();
+    }
+    public function Rposts(){
+        return $this->belongsToMany(Post::class)->withPivot('message')->withTimestamps();
+    }
+
+    public function BoughtCart(){
+        return $this->belongsToMany(Post::class, 'cart')
+            ->withPivot('week', 'status')
+            ->withTimestamps();
+    }
+
+    public function postswithStatus($status){
+        return $this->belongsToMany(Post::class, 'cart')
+            ->wherePivot('status', $status)
+            ->withPivot('week', 'status')
+            ->withTimestamps();
+    }
+
+
+    public function wallets(){
+        return $this->hasMany(Wallet::class);
+    }
 }
